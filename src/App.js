@@ -65,6 +65,29 @@ function App() {
 			setOperator(` ${character} `);
 		}
 
+		// Concatenar operaciones sin pulsar el igual
+		if (checkOperatorRequires && secondNumber) {
+			const operationComplete = [firstNumber, operator, secondNumber];
+			setOperation([...operation, operationComplete]);
+			const setFirstNumberToParse = replaceDecimalToInteger(
+				firstNumber,
+				localeDecimal
+			);
+			const setSecondNumberToParse = replaceDecimalToInteger(
+				secondNumber,
+				localeDecimal
+			);
+			const result = operationFunction(
+				parseFloat(setFirstNumberToParse),
+				parseFloat(setSecondNumberToParse),
+				operator
+			);
+			console.log(result);
+			setFirstNumber(result);
+			setOperator(` ${character} `);
+			setSecondNumber("");
+		}
+
 		// Resultado de la operación. Cambia estado de nuestros tres elementos
 		if (checkAllParameters) {
 			const operationComplete = [firstNumber, operator, secondNumber];

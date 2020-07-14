@@ -7,7 +7,7 @@ const operationFunction = (oper1, oper2, operator) => {
 		case " - ":
 			return `${oper1 - oper2}`;
 		case " * ":
-			return `${oper1 * oper2}`;
+			return `${roundResult(oper1 * oper2)}`;
 		case " / ":
 			return `${roundResult(oper1 / oper2)}`;
 		default:
